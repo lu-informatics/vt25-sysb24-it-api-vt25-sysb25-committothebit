@@ -8,6 +8,7 @@ public class RecipeDto
     public int CookingTime { get; set; }
     public int Servings { get; set; }
     public string? DifficultyLevel { get; set; }
+
+    // Add this property to expose the ingredient names in JSON
+    public List<string>? IngredientNames { get; set; }
 }
-
-
