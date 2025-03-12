@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Appetite.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a18e086341f445c8c5e9602200a7c205e2b1344")]
 [assembly: System.Reflection.AssemblyProductAttribute("Appetite.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Appetite.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
