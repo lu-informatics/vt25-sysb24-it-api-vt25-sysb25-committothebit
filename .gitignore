@@ -176,6 +176,7 @@ AutoTest.Net/
 # Ignore generated config and secrets
 appsettings.json
 appsettings.*.json  # Ignores environment-specific config files like appsettings.Development.json
+appsettings.Development.json
 secrets.json
 
 # DocProject is a documentation generator add-in
