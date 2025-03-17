@@ -30,7 +30,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
     app.UseSwaggerUI();
     app.UseSwagger();
-}
+}                                                               
 
 app.UseHttpsRedirection();
 app.UseRouting();
