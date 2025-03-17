@@ -1,5 +1,4 @@
-﻿
-using Appetite.Api.DTOs;
+﻿using Appetite.Api.DTOs;
 using Appetite.Api.Extensions;
 using Appetite.Api.Models;
 using Appetite.Api.Services;
@@ -7,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
 
 namespace Appetite.Api
 {
@@ -20,17 +18,26 @@ namespace Appetite.Api
             _context = context;
         }
 
-        public async Task<IEnumerable<RecipeDto>> GetAllRecipesAsync()
-        {
-            var recipes = await _context.Recipes.ToListAsync();
-            return recipes.Select(r => r.ToDto());
-        }
+            public async Task<IEnumerable<RecipeDto>> GetAllRecipesAsync()
+    {
+        var recipes = await _context.Recipes
+            .Include(r => r.RecipeIngredients)
+                .ThenInclude(ri => ri.Ingredient)
+            .ToListAsync();
 
-        public async Task<RecipeDto?> GetRecipeByIdAsync(int id)
-        {
-            var recipe = await _context.Recipes.FindAsync(id);
-            return recipe?.ToDto();
-        }
+        return recipes.Select(r => r.ToDto());
+    }
+
+    public async Task<RecipeDto?> GetRecipeByIdAsync(int id)
+    {
+        var recipe = await _context.Recipes
+            .Include(r => r.RecipeIngredients)
+                .ThenInclude(ri => ri.Ingredient)
+            .FirstOrDefaultAsync(r => r.Id == id);
+
+        return recipe?.ToDto();
+    }
+
 
         public async Task<RecipeDto> CreateRecipeAsync(RecipeDto recipeDto)
         {
@@ -46,6 +53,7 @@ namespace Appetite.Api
             _context.Recipes.Add(recipe);
             await _context.SaveChangesAsync();
 
+            // If you need to include ingredients, you may want to load them as well here.
             return recipe.ToDto();
         }
 

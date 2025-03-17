@@ -1,10 +1,9 @@
-using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Appetite.Api.Models;
-
-
+namespace Appetite.Api.Models
+{
     [Table("Recipe")]
     public class Recipe
     {
@@ -32,5 +31,8 @@ namespace Appetite.Api.Models;
         [Column("difficultyLevel")]
         [MaxLength(50)]
         public string? DifficultyLevel { get; set; }
+
+        // Navigation property for related recipe ingredients
+        public ICollection<RecipeIngredient> RecipeIngredients { get; set; } = new List<RecipeIngredient>();
     }
-        
+}

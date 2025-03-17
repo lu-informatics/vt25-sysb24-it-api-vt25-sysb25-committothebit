@@ -172,6 +172,7 @@ AutoTest.Net/
 # Installshield output folder
 [Ee]xpress/
 
+
 # Ignore generated config and secrets
 appsettings.json
 appsettings.*.json  # Ignores environment-specific config files like appsettings.Development.json
@@ -487,3 +488,4 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
