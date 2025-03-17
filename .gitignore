@@ -172,6 +172,11 @@ AutoTest.Net/
 # Installshield output folder
 [Ee]xpress/
 
+# Ignore generated config and secrets
+appsettings.json
+appsettings.*.json  # Ignores environment-specific config files like appsettings.Development.json
+secrets.json
+
 # DocProject is a documentation generator add-in
 DocProject/buildhelp/
 DocProject/Help/*.HxT
